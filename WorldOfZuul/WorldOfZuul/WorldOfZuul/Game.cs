@@ -113,10 +113,38 @@
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to the World of Zuul!");
-            Console.WriteLine("World of Zuul is a new, incredibly boring adventure game.");
-            PrintHelp();
-            Console.WriteLine();
+             Console.Clear();
+            
+            Console.WriteLine("+====+"); Thread.Sleep(200);
+            Console.WriteLine("|(::)|"); Thread.Sleep(200);
+            Console.WriteLine("| )( |"); Thread.Sleep(200);
+            Console.WriteLine("|(  )|"); Thread.Sleep(200);
+            Console.WriteLine("+====+"); Thread.Sleep(200);
+           // PrintHelp();
+            Console.WriteLine("In the shadow of a dying Earth, where rivers run dry and the sky chokes with ash, humanity stands at the brink of extinction. ");
+                Thread.Sleep(5000);
+
+             Console.Clear();
+            
+            Console.WriteLine("+====+"); Thread.Sleep(200);
+            Console.WriteLine("|(..)|"); Thread.Sleep(200);
+            Console.WriteLine("| )( |"); Thread.Sleep(200);
+            Console.WriteLine("|(..)|"); Thread.Sleep(200);
+            Console.WriteLine("+====+"); Thread.Sleep(200);
+           // PrintHelp();
+            Console.WriteLine("A secret, ancient technology, lost to time, is unearthed — a gateway to the past. ");
+                Thread.Sleep(5000);
+
+                
+            Console.WriteLine("+====+"); Thread.Sleep(200);
+            Console.WriteLine("|(  )|"); Thread.Sleep(200);
+            Console.WriteLine("| )( |"); Thread.Sleep(200);
+            Console.WriteLine("|(::)|"); Thread.Sleep(200);
+            Console.WriteLine("+====+"); Thread.Sleep(200);
+           // PrintHelp();
+            Console.WriteLine("Only by traveling through the forgotten eras of human history can you rewrite the mistakes that brought the world to its knees, and restore balance before it’s too late.");
+                Thread.Sleep(5000);
+            Console.Clear();
         }
 
         private static void PrintHelp()
