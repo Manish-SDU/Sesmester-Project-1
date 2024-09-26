@@ -1,4 +1,7 @@
-﻿namespace WorldOfZuul
+﻿using System.Security.Cryptography;
+using MapAndCenter;
+
+namespace WorldOfZuul
 {
     public class Game
     {
@@ -113,10 +116,51 @@
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to the World of Zuul!");
-            Console.WriteLine("World of Zuul is a new, incredibly boring adventure game.");
-            PrintHelp();
-            Console.WriteLine();
+           
+
+             Console.Clear();
+
+              string[] lines = {
+            "+====+",
+            "|(::)|",
+            "| )( |",
+            "|(  )|",
+            "+====+",
+            "In the shadow of a dying Earth, where rivers run dry and the sky chokes with ash, humanity stands at the brink of extinction. "
+            };
+              Map.CenterText(lines);
+              Thread.Sleep(5000);
+              Console.Clear();
+
+                lines = new string[] {
+            "+====+",
+            "|(..)|",
+            "| )( |",
+            "|(..)|",
+            "+====+",
+            "A secret, ancient technology, lost to time, is unearthed — a gateway to the past."
+            };
+              Map.CenterText(lines);
+              Thread.Sleep(5000);
+              Console.Clear();
+    
+             lines = new string[] {
+            "+====+",
+            "|(  )|",
+            "| )( |",
+            "|(::)|",
+            "+====+",
+            "Only by traveling through the forgotten eras of human history can you rewrite the mistakes that brought the world to its knees, and restore balance before it’s too late."
+            };
+                
+             Map.CenterText(lines);
+              Thread.Sleep(5000);
+              Console.Clear();
+
+           // PrintHelp();q
+
+
+            
         }
 
         private static void PrintHelp()
