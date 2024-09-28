@@ -1,10 +1,12 @@
 ﻿using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using MapAndCenter;
 
 namespace WorldOfZuul
 {
     public class Game
     {
+
         private Room? currentRoom;
         private Room? previousRoom;
 
@@ -38,6 +40,8 @@ namespace WorldOfZuul
         public void Play()
         {
             Parser parser = new();
+            var newMap = new Map();  //making an instance of the map is neccecary
+            newMap.CurrentRoomName = "Era2Corals";  //WHEN SWITCHING ROOMS PLEASE DEFINE IT AS HERE!
 
             PrintWelcome();
 
@@ -90,6 +94,12 @@ namespace WorldOfZuul
                     case "help":
                         PrintHelp();
                         break;
+
+                    case "map":
+                        //string CurrentRoom = RoomNow;
+                         //string CurrentRoomName= "Era1";
+                         Map.DisplayMap(newMap.CurrentRoomName);
+                         break;
 
                     default:
                         Console.WriteLine("I don't know what command.");
@@ -169,7 +179,7 @@ namespace WorldOfZuul
              Map.CenterText(lines);
         
 
-           // PrintHelp();q
+            PrintHelp();
 
 
             
@@ -177,14 +187,22 @@ namespace WorldOfZuul
 
         private static void PrintHelp()
         {
-            Console.WriteLine("You are lost. You are alone. You wander");
-            Console.WriteLine("around the university.");
+            
+
+            
+            Console.WriteLine("Blah blah blah game text");
+            Console.WriteLine("we'll add more text here as we go just testing the map");
             Console.WriteLine();
-            Console.WriteLine("Navigate by typing 'north', 'south', 'east', or 'west'.");
-            Console.WriteLine("Type 'look' for more details.");
-            Console.WriteLine("Type 'back' to go to the previous room.");
-            Console.WriteLine("Type 'help' to print this message again.");
-            Console.WriteLine("Type 'quit' to exit the game.");
+           // Console.WriteLine("Navigate by typing 'north', 'south', 'east', or 'west'.");
+           // Console.WriteLine("Type 'look' for more details.");
+           // Console.WriteLine("Type 'back' to go to the previous room.");
+           // Console.WriteLine("Type 'help' to print this message again.");
+           // Console.WriteLine("Type 'quit' to exit the game."); 
+            
+
         }
+    
+        
+    
     }
 }
