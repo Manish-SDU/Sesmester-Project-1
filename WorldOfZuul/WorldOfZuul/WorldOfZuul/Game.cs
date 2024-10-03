@@ -123,73 +123,128 @@ namespace WorldOfZuul
             }
         }
 
+    private static void PrintWelcome()
+    {
+        Console.Clear();
 
-        private static void PrintWelcome()
-        {
-           
-
-             Console.Clear();
-
-              string[] lines = {
+        string[] lines = {
             "+====+",
             "|(::)|",
             "| )( |",
             "|(  )|",
             "+====+",
-            "In the shadow of a dying Earth, where rivers run dry and the sky chokes with ash, humanity stands at the brink of extinction. "
-            };
-              Map.CenterText(lines);
-              Thread.Sleep(5000);
-              Console.Clear();
+            "In the shadow of a dying Earth, where rivers run dry and the sky chokes with ash, humanity stands at the brink of extinction."
+        };
+        Map.CenterText(lines);
+        
+        // Wait for user input
+        Console.WriteLine("\n\nPress any key to continue...");
+        Console.ReadKey(); // Wait for a key press
+        Console.Clear();
 
-                lines = new string[] {
+        lines = new string[] {
             "+====+",
             "|(..)|",
             "| )( |",
             "|(..)|",
             "+====+",
             "A secret, ancient technology, lost to time, is unearthed — a gateway to the past."
-            };
-              Map.CenterText(lines);
-              Thread.Sleep(5000);
-              Console.Clear();
-    
-             lines = new string[] {
+        };
+        Map.CenterText(lines);
+        
+        // Wait for user input
+        Console.WriteLine("\n\nPress any key to continue...");
+        Console.ReadKey(); // Wait for a key press
+        Console.Clear();
+
+        lines = new string[] {
             "+====+",
             "|(  )|",
             "| )( |",
             "|(::)|",
             "+====+",
             "Only by traveling through the forgotten eras of human history can you rewrite the mistakes that brought the world to its knees, and restore balance before it’s too late."
-            };
-                
-             Map.CenterText(lines);
-              Thread.Sleep(5000);
-              Console.Clear();
+        };
 
-              lines = new string[] {
-            @"________                       .__     /\                                      __",
-            @"\______ \ _____ _________  _  _|__| ___)/  ______   ________ __  ____   ______/  |_ ",
-            @" |    |  \\__  \\_  __ \ \/ \/ /  |/    \ /  ___/  / ____/  |  \/ __ \ /  ___|   __\",
-            @" |    `   \/ __ \|  | \/\     /|  |   |  \\___ \  < <_|  |  |  |  ___/ \___ \ |  |  ",
-            @"/_______  (____  /__|    \/\_/ |__|___|  /____  >  \__   |____/ \___  >____  >|__|  ",
-            @"        \/     \/                      \/     \/      |__|          \/     \/       "
-            };
-                
-             Map.CenterText(lines);
+        Map.CenterText(lines);
         
+        // Wait for user input
+        Console.WriteLine("\n\nPress any key to continue...");
+        Console.ReadKey(); // Wait for a key press
+        Console.Clear();
 
-            PrintHelp();
+        // ASCII art lines with dollar signs
+        lines = new string[]
+        {
+            @"           ::                                                                                                                             ::            ",
+            @"           ::                                                                                                                             ::**@@@@@     ",
+            @"           ::                                                                                                                             ::*@@@@@@@    ",
+            @"           ::                                                                                                                             ::*@@@@@@@    ",
+            @"    *@@@@@@::                                                                                                                             ::@@@@@@      ",
+            @"   *@@@@@@@:: $$$$$$$\                                    $$\         $$\                $$$$$$\                                  $$\     ::@@@@@       ",
+            @"   @@@@ **@:: $$  __$$\                                   \__|        $  |              $$  __$$\                                 $$ |    ::@@@@@@*     ",
+            @"   *@@  *@@:: $$ |  $$ | $$$$$$\   $$$$$$\  $$\  $$\  $$\ $$\ $$$$$$$\\_/$$$$$$$\       $$ /  $$ |$$\   $$\  $$$$$$\   $$$$$$$\ $$$$$$\   ::@@@**@@@@   ",
+            @"       *@@@:: $$ |  $$ | \____$$\ $$  __$$\ $$ | $$ | $$ |$$ |$$  __$$\ $$  _____|      $$ |  $$ |$$ |  $$ |$$  __$$\ $$  _____|\_$$  _|  ::@@   *@@@@@ ",
+            @"**     @@@@:: $$ |  $$ | $$$$$$$ |$$ |  \__|$$ | $$ | $$ |$$ |$$ |  $$ |\$$$$$$\        $$ |  $$ |$$ |  $$ |$$$$$$$$ |\$$$$$$\    $$ |    ::@       *** ",
+            @"@@@ *@@@@@@:: $$ |  $$ |$$  __$$ |$$ |      $$ | $$ | $$ |$$ |$$ |  $$ | \____$$\       $$ $$\$$ |$$ |  $$ |$$   ____| \____$$\   $$ |$$\ ::@**         ",
+            @"*@@@@@@@ @@:: $$$$$$$  |\$$$$$$$ |$$ |      \$$$$$\$$$$  |$$ |$$ |  $$ |$$$$$$$  |      \$$$$$$ / \$$$$$$  |\$$$$$$$\ $$$$$$$  |  \$$$$  |::@@@@*       ",
+            @" *@@@@@  *@:: \_______/  \_______|\__|       \_____\____/ \__|\__|  \__|\_______/        \___$$$\  \______/  \_______|\_______/    \____/ ::@@@*        ",
+            @"  **@@     ::                                                                                \___|                                        ::@*          ",
+            @"           ::                                                                                                                             :@*           ",
+            @"           ::                                                                                                                             ::*           ",
+            @"                                                                                                                                                        ",
+            @"                                                                                                                                                        ",                                                                                
+                                                                                
+        };
 
+        // Center the ASCII art lines and print with green dollar signs
+        foreach (var line in lines)
+        {
+            // Calculate the padding for centering
+            int totalWidth = Console.WindowWidth;
+            int lineLength = line.Length;
+            int spacesToPad = (totalWidth - lineLength) / 2;
 
+            // Print leading spaces for centering
+            Console.Write(new string(' ', spacesToPad));
             
+            // Print the line with green dollar signs, blue "@" symbols, and yellow ":"
+            foreach (char i in line)
+            {
+                if (i == '$')
+                {
+                    Console.ForegroundColor = ConsoleColor.Green; // Set color to green for dollar signs
+                    Console.Write(i); // Print dollar sign
+                }
+                else if (i == '@')
+                {
+                    Console.ForegroundColor = ConsoleColor.Gray; // Set color to "" for "@"
+                    Console.Write(i); // Print "@"
+                }
+                else if (i == ':')
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow; // Set color to yellow for ":"
+                    Console.Write(i); // Print ":"
+                }
+                else if (i == '*')
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray; // Set color to DrakGray for "*"
+                    Console.Write(i); // Print ":"
+                }
+                else
+                {
+                    Console.ResetColor(); // Reset to default color for other characters
+                    Console.Write(i); // Print other characters
+                }
+                Console.ResetColor(); // Reset to default color after each character
+            }
+            Console.WriteLine(); // Move to the next line after printing the current line
         }
+        PrintHelp();
+    }
 
         private static void PrintHelp()
-        {
-            
-
-            
+        {   
             Console.WriteLine("Blah blah blah game text");
             Console.WriteLine("we'll add more text here as we go just testing the map");
             Console.WriteLine();
