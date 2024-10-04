@@ -203,43 +203,44 @@ namespace WorldOfZuul
             // Calculate the padding for centering
             int totalWidth = Console.WindowWidth;
             int lineLength = line.Length;
-            int spacesToPad = (totalWidth - lineLength) / 2;
+            int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
 
             // Print leading spaces for centering
             Console.Write(new string(' ', spacesToPad));
-            
-            // Print the line with green dollar signs, blue "@" symbols, and yellow ":"
+
+            // Print the line with colored characters
             foreach (char i in line)
             {
-                if (i == '$')
+                switch (i)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green; // Set color to green for dollar signs
-                    Console.Write(i); // Print dollar sign
+                    case '$':
+                        Console.ForegroundColor = ConsoleColor.Green; 
+                        Console.Write(i); 
+                        break;
+                    case '@':
+                        Console.ForegroundColor = ConsoleColor.Gray; 
+                        Console.Write(i); 
+                        break;
+                    case ':':
+                        Console.ForegroundColor = ConsoleColor.Yellow; 
+                        Console.Write(i); 
+                        break;
+                    case '*':
+                        Console.ForegroundColor = ConsoleColor.DarkGray; 
+                        Console.Write(i); 
+                        break;
+                    default:
+                        Console.ResetColor(); 
+                        Console.Write(i); 
+                        break;
                 }
-                else if (i == '@')
-                {
-                    Console.ForegroundColor = ConsoleColor.Gray; // Set color to "" for "@"
-                    Console.Write(i); // Print "@"
-                }
-                else if (i == ':')
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow; // Set color to yellow for ":"
-                    Console.Write(i); // Print ":"
-                }
-                else if (i == '*')
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGray; // Set color to DrakGray for "*"
-                    Console.Write(i); // Print ":"
-                }
-                else
-                {
-                    Console.ResetColor(); // Reset to default color for other characters
-                    Console.Write(i); // Print other characters
-                }
-                Console.ResetColor(); // Reset to default color after each character
             }
-            Console.WriteLine(); // Move to the next line after printing the current line
+            
+            // Avoid adding an extra newline, just use Write instead of WriteLine
+            // With this the ASCII art at the beginning can adapt to different screen sizes
+            Console.Write("\r");
         }
+
         PrintHelp();
     }
 
