@@ -174,7 +174,6 @@ namespace WorldOfZuul
 
 private static void CenterAndDisplayArt(string[] lines)
 {
-    // Calculate centering and print each line of the ASCII art/text
     foreach (var line in lines)
     {
         int totalWidth = Console.WindowWidth;
@@ -183,7 +182,10 @@ private static void CenterAndDisplayArt(string[] lines)
 
         // Print leading spaces for centering
         Console.Write(new string(' ', spacesToPad));
-        Console.WriteLine(line); // Print the line after padding
+
+        // Write the line without adding extra line breaks
+        Console.Write(line); // No implicit newline
+        Console.Write("\n"); // Manual newline to prevent extra spaces
     }
 }
 
