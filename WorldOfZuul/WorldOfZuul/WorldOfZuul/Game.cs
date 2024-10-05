@@ -238,6 +238,7 @@ namespace WorldOfZuul
             
             // Avoid adding an extra newline, just use Write instead of WriteLine
             // With this the ASCII art at the beginning can adapt to different screen sizes
+            Map.CenterText(lines);
             Console.Write("\r");
         }
 
