@@ -174,15 +174,15 @@ namespace WorldOfZuul
 
 // * You can ignore this part
 // Manish: This is just a custom method so I can view the ASCII properly in my computer (Microsoft Surface Pro 9) or tablet screens
-private static bool DetectSurfaceProEnvironment()
+private static bool IsSmallScreen()
 {
-    // Smaller console width.
-    return Console.WindowWidth <= 80; // Example: assume computer sonsole has <= 80 columns
+    // Detect if console window width is small (like on a Surface Pro)
+    return Console.WindowWidth < 80;
 }
 
 private static void CenterAndDisplayArt(string[] lines)
 {
-    bool isSurfacePro = DetectSurfaceProEnvironment();
+    bool isSmallScreen = IsSmallScreen();
 
     foreach (var line in lines)
     {
@@ -193,16 +193,16 @@ private static void CenterAndDisplayArt(string[] lines)
         // Print leading spaces for centering
         Console.Write(new string(' ', spacesToPad));
 
-        // Print the line without extra newlines on Surface Pro
-        if (!isSurfacePro)
+        // On big screens (monitors), print normally
+        if (!isSmallScreen)
         {
-            Console.WriteLine(line);  // Regular newline for non-tablet environments
+            Console.WriteLine(line);
         }
         else
         {
-            // On Surface Pro, avoid adding extra line feeds by using Write instead of WriteLine
+            // On small screens (Surface Pro), print with the previous logic
             Console.Write(line);
-            Console.SetCursorPosition(0, Console.CursorTop); // Keep the cursor on the same line, preventing the next line from appearing stretched
+            Console.Write("\r");  // Prevent extra lines, avoid stretching vertically
         }
     }
 }
