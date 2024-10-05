@@ -251,7 +251,7 @@ namespace WorldOfZuul
         }
     }
     
-    class Program
+    class Surface
     {
         static void Main(string[] args)
         {
