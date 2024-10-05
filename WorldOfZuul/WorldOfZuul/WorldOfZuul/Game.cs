@@ -185,7 +185,7 @@ private static void CenterAndDisplayArt(string[] lines)
 
         // Write the line without adding extra line breaks
         Console.Write(line); // No implicit newline
-        Console.Write("\n"); // Manual newline to prevent extra spaces
+        Console.Write("\r"); // Manual newline to prevent extra spaces
     }
 }
 
@@ -267,8 +267,5 @@ private static void DisplayColoredAsciiArt()
             
 
         }
-    
-        
-    
     }
 }
