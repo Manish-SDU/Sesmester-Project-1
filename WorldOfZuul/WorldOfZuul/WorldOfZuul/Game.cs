@@ -174,75 +174,89 @@ namespace WorldOfZuul
         Console.Clear();
 
         // ASCII art lines with dollar signs
-        lines = new string[]
+        static void TitleCard(string[] args)
         {
-            @"           ::                                                                                                                             ::            ",
-            @"           ::                                                                                                                             ::**@@@@@     ",
-            @"           ::                                                                                                                             ::*@@@@@@@    ",
-            @"           ::                                                                                                                             ::*@@@@@@@    ",
-            @"    *@@@@@@::                                                                                                                             ::@@@@@@      ",
-            @"   *@@@@@@@:: $$$$$$$\                                    $$\         $$\                $$$$$$\                                  $$\     ::@@@@@       ",
-            @"   @@@@ **@:: $$  __$$\                                   \__|        $  |              $$  __$$\                                 $$ |    ::@@@@@@*     ",
-            @"   *@@  *@@:: $$ |  $$ | $$$$$$\   $$$$$$\  $$\  $$\  $$\ $$\ $$$$$$$\\_/$$$$$$$\       $$ /  $$ |$$\   $$\  $$$$$$\   $$$$$$$\ $$$$$$\   ::@@@**@@@@   ",
-            @"       *@@@:: $$ |  $$ | \____$$\ $$  __$$\ $$ | $$ | $$ |$$ |$$  __$$\ $$  _____|      $$ |  $$ |$$ |  $$ |$$  __$$\ $$  _____|\_$$  _|  ::@@   *@@@@@ ",
-            @"**     @@@@:: $$ |  $$ | $$$$$$$ |$$ |  \__|$$ | $$ | $$ |$$ |$$ |  $$ |\$$$$$$\        $$ |  $$ |$$ |  $$ |$$$$$$$$ |\$$$$$$\    $$ |    ::@       *** ",
-            @"@@@ *@@@@@@:: $$ |  $$ |$$  __$$ |$$ |      $$ | $$ | $$ |$$ |$$ |  $$ | \____$$\       $$ $$\$$ |$$ |  $$ |$$   ____| \____$$\   $$ |$$\ ::@**         ",
-            @"*@@@@@@@ @@:: $$$$$$$  |\$$$$$$$ |$$ |      \$$$$$\$$$$  |$$ |$$ |  $$ |$$$$$$$  |      \$$$$$$ / \$$$$$$  |\$$$$$$$\ $$$$$$$  |  \$$$$  |::@@@@*       ",
-            @" *@@@@@  *@:: \_______/  \_______|\__|       \_____\____/ \__|\__|  \__|\_______/        \___$$$\  \______/  \_______|\_______/    \____/ ::@@@*        ",
-            @"  **@@     ::                                                                                \___|                                        ::@*          ",
-            @"           ::                                                                                                                             :@*           ",
-            @"           ::                                                                                                                             ::*           ",
-            @"                                                                                                                                                        ",
-            @"                                                                                                                                                        ",                                                                                
-                                                                                
-        };
-
-        // Color and centering of the characters
-        foreach (var line in lines)
-        {
-            // Calculate the padding for centering
-            int totalWidth = Console.WindowWidth;
-            int lineLength = line.Length;
-            int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
-        
-            // Print leading spaces for centering
-            Console.Write(new string(' ', spacesToPad));
-        
-            // Print the line with colored characters
-            foreach (char i in line)
+            // Check if the argument "s" is passed
+            bool isSurfacePro = args.Contains("s");
+    
+            // ASCII art lines with dollar signs
+            string[] lines = new string[]
             {
-                switch (i)
+                @"           ::                                                                                                                             ::            ",
+                @"           ::                                                                                                                             ::**@@@@@     ",
+                @"           ::                                                                                                                             ::*@@@@@@@    ",
+                @"           ::                                                                                                                             ::*@@@@@@@    ",
+                @"    *@@@@@@::                                                                                                                             ::@@@@@@      ",
+                @"   *@@@@@@@:: $$$$$$$\                                    $$\         $$\                $$$$$$\                                  $$\     ::@@@@@       ",
+                @"   @@@@ **@:: $$  __$$\                                   \__|        $  |              $$  __$$\                                 $$ |    ::@@@@@@*     ",
+                @"   *@@  *@@:: $$ |  $$ | $$$$$$\   $$$$$$\  $$\  $$\  $$\ $$\ $$$$$$$\\_/$$$$$$$\       $$ /  $$ |$$\   $$\  $$$$$$\   $$$$$$$\ $$$$$$\   ::@@@**@@@@   ",
+                @"       *@@@:: $$ |  $$ | \____$$\ $$  __$$\ $$ | $$ | $$ |$$ |$$  __$$\ $$  _____|      $$ |  $$ |$$ |  $$ |$$  __$$\ $$  _____|\_$$  _|  ::@@   *@@@@@ ",
+                @"**     @@@@:: $$ |  $$ | $$$$$$$ |$$ |  \__|$$ | $$ | $$ |$$ |$$ |  $$ |\$$$$$$\        $$ |  $$ |$$ |  $$ |$$$$$$$$ |\$$$$$$\    $$ |    ::@       *** ",
+                @"@@@ *@@@@@@:: $$ |  $$ |$$  __$$ |$$ |      $$ | $$ | $$ |$$ |$$ |  $$ | \____$$\       $$ $$\$$ |$$ |  $$ |$$   ____| \____$$\   $$ |$$\ ::@**         ",
+                @"*@@@@@@@ @@:: $$$$$$$  |\$$$$$$$ |$$ |      \$$$$$\$$$$  |$$ |$$ |  $$ |$$$$$$$  |      \$$$$$$ / \$$$$$$  |\$$$$$$$\ $$$$$$$  |  \$$$$  |::@@@@*       ",
+                @" *@@@@@  *@:: \_______/  \_______|\__|       \_____\____/ \__|\__|  \__|\_______/        \___$$$\  \______/  \_______|\_______/    \____/ ::@@@*        ",
+                @"  **@@     ::                                                                                \___|                                        ::@*          ",
+                @"           ::                                                                                                                             :@*           ",
+                @"           ::                                                                                                                             ::*           ",
+                @"                                                                                                                                                        ",
+                @"                                                                                                                                                        ",                                                                                
+            };
+    
+            // Color and centering of the characters
+            foreach (var line in lines)
+            {
+                // Calculate the padding for centering
+                int totalWidth = Console.WindowWidth;
+                int lineLength = line.Length;
+                int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
+            
+                // Print leading spaces for centering
+                Console.Write(new string(' ', spacesToPad));
+            
+                // Print the line with colored characters
+                foreach (char i in line)
                 {
-                    case '$':
-                        Console.ForegroundColor = ConsoleColor.Green; 
-                        Console.Write(i); 
-                        break;
-                    case '@':
-                        Console.ForegroundColor = ConsoleColor.Gray; 
-                        Console.Write(i); 
-                        break;
-                    case ':':
-                        Console.ForegroundColor = ConsoleColor.Yellow; 
-                        Console.Write(i); 
-                        break;
-                    case '*':
-                        Console.ForegroundColor = ConsoleColor.DarkGray; 
-                        Console.Write(i); 
-                        break;
-                    default:
-                        Console.ResetColor(); 
-                        Console.Write(i); 
-                        break;
+                    switch (i)
+                    {
+                        case '$':
+                            Console.ForegroundColor = ConsoleColor.Green; 
+                            Console.Write(i); 
+                            break;
+                        case '@':
+                            Console.ForegroundColor = ConsoleColor.Gray; 
+                            Console.Write(i); 
+                            break;
+                        case ':':
+                            Console.ForegroundColor = ConsoleColor.Yellow; 
+                            Console.Write(i); 
+                            break;
+                        case '*':
+                            Console.ForegroundColor = ConsoleColor.DarkGray; 
+                            Console.Write(i); 
+                            break;
+                        default:
+                            Console.ResetColor(); 
+                            Console.Write(i); 
+                            break;
+                    }
+                }
+                
+                // Reset color for the next line
+                Console.ResetColor();
+                
+                // Move to the next line after printing the current line
+                if (args.Contains("s"))
+                {
+                    // Avoid adding an extra newline for Surface Pro
+                    Console.Write("\r");
+                }
+                else
+                {
+                    // Use WriteLine for larger screens
+                    Console.WriteLine();
                 }
             }
-            
-            // Reset color for the next line
-            Console.ResetColor();
-            
-            // Move to the next line after printing the current line
-            Console.WriteLine();
         }
-
         PrintHelp();
     }
 
