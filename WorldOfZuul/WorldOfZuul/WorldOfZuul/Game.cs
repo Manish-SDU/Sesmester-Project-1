@@ -172,8 +172,19 @@ namespace WorldOfZuul
     DisplayColoredAsciiArt();
 }
 
+// * You can ignore this part
+// Manish: This is just a custom method so I can view the ASCII properly in my computer (Microsoft Surface Pro 9) or tablet screens
+private static bool DetectSurfaceProEnvironment()
+{
+    // Smaller console width.
+    return Console.WindowWidth <= 80; // Example: assume computer sonsole has <= 80 columns
+}
+
 private static void CenterAndDisplayArt(string[] lines)
 {
+    // Detect whether the environment is a Surface Pro or small screen
+    bool isSurfacePro = DetectSurfaceProEnvironment();
+
     foreach (var line in lines)
     {
         int totalWidth = Console.WindowWidth;
@@ -183,9 +194,20 @@ private static void CenterAndDisplayArt(string[] lines)
         // Print leading spaces for centering
         Console.Write(new string(' ', spacesToPad));
 
-        // Write the line without adding extra line breaks
-        Console.Write(line); // No implicit newline
-        Console.Write("\r"); // Manual newline to prevent extra spaces
+        // Print the line
+        Console.Write(line);
+
+        // Conditionally add new lines based on device detection
+        if (!isSurfacePro)
+        {
+            // Add a regular newline for non-Surface Pro environments
+            Console.Write("\n");
+        }
+        else
+        {
+            // Skip the newline on Surface Pro to avoid double spacing
+            Console.Write("\r"); // Use carriage return to prevent extra space
+        }
     }
 }
 
