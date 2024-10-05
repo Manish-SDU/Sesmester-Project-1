@@ -124,7 +124,6 @@ namespace WorldOfZuul
         }
 
     private static void PrintWelcome()
-{private static void PrintWelcome()
 {
     Console.Clear();
     
