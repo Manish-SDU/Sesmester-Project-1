@@ -239,6 +239,7 @@ namespace WorldOfZuul
     Console.WriteLine("\n\nPress any key to exit...");
     Console.ReadKey();
 }
+
         PrintHelp();
     }
 
