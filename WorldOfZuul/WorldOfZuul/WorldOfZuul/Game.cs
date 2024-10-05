@@ -124,123 +124,131 @@ namespace WorldOfZuul
         }
 
     private static void PrintWelcome()
-    {
-        Console.Clear();
+{
+    // Method to clear console and print the ASCII art consistently on both large and small screens
+    Console.Clear();
 
-        string[] lines = {
+    string[][] artSequences = new string[][]
+    {
+        new string[]
+        {
             "+====+",
             "|(::)|",
             "| )( |",
             "|(  )|",
             "+====+",
             "In the shadow of a dying Earth, where rivers run dry and the sky chokes with ash, humanity stands at the brink of extinction."
-        };
-        Map.CenterText(lines);
-        
-        // Wait for user input
-        Console.WriteLine("\n\nPress any key to continue...");
-        Console.ReadKey(); // Wait for a key press
-        Console.Clear();
-
-        lines = new string[] {
+        },
+        new string[]
+        {
             "+====+",
             "|(..)|",
             "| )( |",
             "|(..)|",
             "+====+",
             "A secret, ancient technology, lost to time, is unearthed — a gateway to the past."
-        };
-        Map.CenterText(lines);
-        
-        // Wait for user input
-        Console.WriteLine("\n\nPress any key to continue...");
-        Console.ReadKey(); // Wait for a key press
-        Console.Clear();
-
-        lines = new string[] {
+        },
+        new string[]
+        {
             "+====+",
             "|(  )|",
             "| )( |",
             "|(::)|",
             "+====+",
             "Only by traveling through the forgotten eras of human history can you rewrite the mistakes that brought the world to its knees, and restore balance before it’s too late."
-        };
+        }
+    };
 
-        Map.CenterText(lines);
-        
-        // Wait for user input
+    // Loop through each sequence of ASCII art
+    foreach (var lines in artSequences)
+    {
+        CenterAndDisplayArt(lines); // Center the art
         Console.WriteLine("\n\nPress any key to continue...");
-        Console.ReadKey(); // Wait for a key press
-        Console.Clear();
+        Console.ReadKey();
+        Console.Clear(); // Clear screen between steps
+    }
 
-        // ASCII art lines with dollar signs
-        lines = new string[]
+    // Display the large ASCII art with symbols and color
+    DisplayColoredAsciiArt();
+}
+
+private static void CenterAndDisplayArt(string[] lines)
+{
+    // Calculate centering and print each line of the ASCII art/text
+    foreach (var line in lines)
+    {
+        int totalWidth = Console.WindowWidth;
+        int lineLength = line.Length;
+        int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
+
+        // Print leading spaces for centering
+        Console.Write(new string(' ', spacesToPad));
+        Console.WriteLine(line); // Print the line after padding
+    }
+}
+
+private static void DisplayColoredAsciiArt()
+{
+    string[] lines = new string[]
+    {
+        @"           ::                                                                                                                             ::            ",
+        @"           ::                                                                                                                             ::**@@@@@     ",
+        @"           ::                                                                                                                             ::*@@@@@@@    ",
+        @"           ::                                                                                                                             ::*@@@@@@@    ",
+        @"    *@@@@@@::                                                                                                                             ::@@@@@@      ",
+        @"   *@@@@@@@:: $$$$$$$\                                    $$\         $$\                $$$$$$\                                  $$\     ::@@@@@       ",
+        @"   @@@@ **@:: $$  __$$\                                   \__|        $  |              $$  __$$\                                 $$ |    ::@@@@@@*     ",
+        @"   *@@  *@@:: $$ |  $$ | $$$$$$\   $$$$$$\  $$\  $$\  $$\ $$\ $$$$$$$\\_/$$$$$$$\       $$ /  $$ |$$\   $$\  $$$$$$\   $$$$$$$\ $$$$$$\   ::@@@**@@@@   ",
+        @"       *@@@:: $$ |  $$ | \____$$\ $$  __$$\ $$ | $$ | $$ |$$ |$$  __$$\ $$  _____|      $$ |  $$ |$$ |  $$ |$$  __$$\ $$  _____|\_$$  _|  ::@@   *@@@@@ ",
+        @"**     @@@@:: $$ |  $$ | $$$$$$$ |$$ |  \__|$$ | $$ | $$ |$$ |$$ |  $$ |\$$$$$$\        $$ |  $$ |$$ |  $$ |$$$$$$$$ |\$$$$$$\    $$ |    ::@       *** ",
+        @"@@@ *@@@@@@:: $$ |  $$ |$$  __$$ |$$ |      $$ | $$ | $$ |$$ |$$ |  $$ | \____$$\       $$ $$\$$ |$$ |  $$ |$$   ____| \____$$\   $$ |$$\ ::@**         ",
+        @"*@@@@@@@ @@:: $$$$$$$  |\$$$$$$$ |$$ |      \$$$$$\$$$$  |$$ |$$ |  $$ |$$$$$$$  |      \$$$$$$ / \$$$$$$  |\$$$$$$$\ $$$$$$$  |  \$$$$  |::@@@@*       ",
+        @" *@@@@@  *@:: \_______/  \_______|\__|       \_____\____/ \__|\__|  \__|\_______/        \___$$$\  \______/  \_______|\_______/    \____/ ::@@@*        ",
+        @"  **@@     ::                                                                                \___|                                        ::@*          ",
+        @"           ::                                                                                                                             :@*           ",
+        @"           ::                                                                                                                             ::*           ",
+        @"                                                                                                                                                        ",
+    };
+
+    // Print the larger ASCII art with colors
+    foreach (var line in lines)
+    {
+        // Calculate the padding for centering
+        int totalWidth = Console.WindowWidth;
+        int lineLength = line.Length;
+        int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
+
+        // Print leading spaces for centering
+        Console.Write(new string(' ', spacesToPad));
+
+        // Print the line with colored characters
+        foreach (char i in line)
         {
-            @"           ::                                                                                                                             ::            ",
-            @"           ::                                                                                                                             ::**@@@@@     ",
-            @"           ::                                                                                                                             ::*@@@@@@@    ",
-            @"           ::                                                                                                                             ::*@@@@@@@    ",
-            @"    *@@@@@@::                                                                                                                             ::@@@@@@      ",
-            @"   *@@@@@@@:: $$$$$$$\                                    $$\         $$\                $$$$$$\                                  $$\     ::@@@@@       ",
-            @"   @@@@ **@:: $$  __$$\                                   \__|        $  |              $$  __$$\                                 $$ |    ::@@@@@@*     ",
-            @"   *@@  *@@:: $$ |  $$ | $$$$$$\   $$$$$$\  $$\  $$\  $$\ $$\ $$$$$$$\\_/$$$$$$$\       $$ /  $$ |$$\   $$\  $$$$$$\   $$$$$$$\ $$$$$$\   ::@@@**@@@@   ",
-            @"       *@@@:: $$ |  $$ | \____$$\ $$  __$$\ $$ | $$ | $$ |$$ |$$  __$$\ $$  _____|      $$ |  $$ |$$ |  $$ |$$  __$$\ $$  _____|\_$$  _|  ::@@   *@@@@@ ",
-            @"**     @@@@:: $$ |  $$ | $$$$$$$ |$$ |  \__|$$ | $$ | $$ |$$ |$$ |  $$ |\$$$$$$\        $$ |  $$ |$$ |  $$ |$$$$$$$$ |\$$$$$$\    $$ |    ::@       *** ",
-            @"@@@ *@@@@@@:: $$ |  $$ |$$  __$$ |$$ |      $$ | $$ | $$ |$$ |$$ |  $$ | \____$$\       $$ $$\$$ |$$ |  $$ |$$   ____| \____$$\   $$ |$$\ ::@**         ",
-            @"*@@@@@@@ @@:: $$$$$$$  |\$$$$$$$ |$$ |      \$$$$$\$$$$  |$$ |$$ |  $$ |$$$$$$$  |      \$$$$$$ / \$$$$$$  |\$$$$$$$\ $$$$$$$  |  \$$$$  |::@@@@*       ",
-            @" *@@@@@  *@:: \_______/  \_______|\__|       \_____\____/ \__|\__|  \__|\_______/        \___$$$\  \______/  \_______|\_______/    \____/ ::@@@*        ",
-            @"  **@@     ::                                                                                \___|                                        ::@*          ",
-            @"           ::                                                                                                                             :@*           ",
-            @"           ::                                                                                                                             ::*           ",
-            @"                                                                                                                                                        ",
-            @"                                                                                                                                                        ",                                                                                
-                                                                                
-        };
-
-        // Center the ASCII art lines and print with green dollar signs
-        foreach (var line in lines)
-        {
-            // Calculate the padding for centering
-            int totalWidth = Console.WindowWidth;
-            int lineLength = line.Length;
-            int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
-
-            // Print leading spaces for centering
-            Console.Write(new string(' ', spacesToPad));
-
-            // Print the line with colored characters
-            foreach (char i in line)
+            switch (i)
             {
-                switch (i)
-                {
-                    case '$':
-                        Console.ForegroundColor = ConsoleColor.Green; 
-                        Console.Write(i); 
-                        break;
-                    case '@':
-                        Console.ForegroundColor = ConsoleColor.Gray; 
-                        Console.Write(i); 
-                        break;
-                    case ':':
-                        Console.ForegroundColor = ConsoleColor.Yellow; 
-                        Console.Write(i); 
-                        break;
-                    case '*':
-                        Console.ForegroundColor = ConsoleColor.DarkGray; 
-                        Console.Write(i); 
-                        break;
-                    default:
-                        Console.ResetColor(); 
-                        Console.Write(i); 
-                        break;
-                }
+                case '$':
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case '@':
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+                case ':':
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case '*':
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    break;
+                default:
+                    Console.ResetColor();
+                    break;
             }
-            
-            // Avoid adding an extra newline, just use Write instead of WriteLine
-            // With this the ASCII art at the beginning can adapt to different screen sizes
-            Console.Write("\r");
+            Console.Write(i);
         }
 
+        // Reset color and move to next line
+        Console.ResetColor();
+        Console.WriteLine();
+    }
         PrintHelp();
     }
 
