@@ -159,13 +159,37 @@ namespace WorldOfZuul
                 "+====+",
                 "Only by traveling through the forgotten eras of human history can you rewrite the mistakes that brought the world to its knees, and restore balance before it’s too late."
             };
-
             Map.CenterText(lines);
 
             // Wait for user input
-            Console.WriteLine("\n\nPress any key to continue...");
-            Console.ReadKey(); // Wait for a key press
-            Console.Clear();
+            /* 
+               Manish: Ask the user if they want to use the "s" option for Tablet display - Like a Surface Pro (My Computer)
+               This logic is primarily for my own use so I can view the game on my computer.
+               If I remove this logic, all the ASCII art becomes misaligned and disoriented on my computer. 
+            */
+
+            Console.WriteLine("\n\n\n\n");
+
+            // Set color for the prompt message
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+            // Message to display
+            string message = "Press 's' for small devices like tablets (e.g., Microsoft Surface) or any other key for larger devices like laptops:";
+
+            // Get the console width and calculate the starting position for centering
+            int consoleWidth = Console.WindowWidth;
+            int messageLength = message.Length;
+            int spaces = (consoleWidth - messageLength) / 2;
+
+            // Print spaces to center the message
+            Console.WriteLine(new string(' ', spaces) + message);
+
+            Console.ResetColor(); // Reset color to default
+
+            // Capture user input without displaying it
+            char userInput = Console.ReadKey(true).KeyChar;
+            Console.WriteLine(); // Move to the next line for better formatting
+            Console.Clear(); // Clear the console
 
             // ASCII art lines with dollar signs
             lines = new string[]
@@ -191,10 +215,6 @@ namespace WorldOfZuul
             };
 
             // Color and centering of the characters
-            // Ask the user if they want to use the "s" option for Surface Pro
-            Console.WriteLine("Press 's' for Surface display option or any other key to continue:");
-            char userInput = Console.ReadKey(true).KeyChar; // Capture user input without displaying it
-
             foreach (var line in lines)
             {
                 // Calculate the padding for centering
@@ -237,7 +257,7 @@ namespace WorldOfZuul
                 Console.ResetColor();
                 
                 // Move to the next line after printing the current line or use "\r" based on user input
-                if (userInput == 's' || userInput == 'S') // Check if user pressed 's' or 'S'
+                if (userInput == 's' || userInput == 'S') // Check if user pressed 's' or 'S' for Tablet display
                 {
                     Console.Write("\r"); // Overwrite the current line
                 }
@@ -246,6 +266,7 @@ namespace WorldOfZuul
                     Console.WriteLine(); // Move to the next line
                 }
             }
+
             PrintHelp();
         }
 
