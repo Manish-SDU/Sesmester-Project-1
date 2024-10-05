@@ -124,12 +124,14 @@ namespace WorldOfZuul
         }
 
     private static void PrintWelcome()
+{private static void PrintWelcome()
 {
-    // Method to clear console and print the ASCII art consistently on both large and small screens
     Console.Clear();
+    
+    // Set a fixed console window size (you may adjust as necessary)
+    Console.SetWindowSize(100, 40); // Width, Height
 
-    string[][] artSequences = new string[][]
-    {
+    string[][] welcomeMessages = {
         new string[]
         {
             "+====+",
@@ -159,57 +161,17 @@ namespace WorldOfZuul
         }
     };
 
-    // Loop through each sequence of ASCII art
-    foreach (var lines in artSequences)
+    // Loop through the welcome messages and print each one
+    foreach (var lines in welcomeMessages)
     {
-        CenterAndDisplayArt(lines); // Center the art
+        Map.CenterText(lines);
         Console.WriteLine("\n\nPress any key to continue...");
         Console.ReadKey();
-        Console.Clear(); // Clear screen between steps
+        Console.Clear();
     }
 
-    // Display the large ASCII art with symbols and color
-    DisplayColoredAsciiArt();
-}
-
-// * You can ignore this part
-// Manish: This is just a custom method so I can view the ASCII properly in my computer (Microsoft Surface Pro 9) or tablet screens
-private static bool IsSmallScreen()
-{
-    // Detect if console window width is small (like on a Surface Pro)
-    return Console.WindowWidth < 80;
-}
-
-private static void CenterAndDisplayArt(string[] lines)
-{
-    bool isSmallScreen = IsSmallScreen();
-
-    foreach (var line in lines)
-    {
-        int totalWidth = Console.WindowWidth;
-        int lineLength = line.Length;
-        int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
-
-        // Print leading spaces for centering
-        Console.Write(new string(' ', spacesToPad));
-
-        // On big screens (monitors), print normally
-        if (!isSmallScreen)
-        {
-            Console.WriteLine(line);
-        }
-        else
-        {
-            // On small screens (Surface Pro), print with the previous logic
-            Console.Write(line);
-            Console.Write("\r");  // Prevent extra lines, avoid stretching vertically
-        }
-    }
-}
-
-private static void DisplayColoredAsciiArt()
-{
-    string[] lines = new string[]
+    // ASCII art lines with dollar signs
+    string[] asciiArtLines = new string[]
     {
         @"           ::                                                                                                                             ::            ",
         @"           ::                                                                                                                             ::**@@@@@     ",
@@ -228,10 +190,11 @@ private static void DisplayColoredAsciiArt()
         @"           ::                                                                                                                             :@*           ",
         @"           ::                                                                                                                             ::*           ",
         @"                                                                                                                                                        ",
+        @"                                                                                                                                                        ",                                                                                
     };
 
-    // Print the larger ASCII art with colors
-    foreach (var line in lines)
+    // Center the ASCII art lines and print with green dollar signs
+    foreach (var line in asciiArtLines)
     {
         // Calculate the padding for centering
         int totalWidth = Console.WindowWidth;
@@ -247,28 +210,36 @@ private static void DisplayColoredAsciiArt()
             switch (i)
             {
                 case '$':
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Green; 
+                    Console.Write(i); 
                     break;
                 case '@':
-                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Gray; 
+                    Console.Write(i); 
                     break;
                 case ':':
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Yellow; 
+                    Console.Write(i); 
                     break;
                 case '*':
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.ForegroundColor = ConsoleColor.DarkGray; 
+                    Console.Write(i); 
                     break;
                 default:
-                    Console.ResetColor();
+                    Console.ResetColor(); 
+                    Console.Write(i); 
                     break;
             }
-            Console.Write(i);
         }
 
-        // Reset color and move to next line
-        Console.ResetColor();
-        Console.WriteLine();
+        // Avoid adding an extra newline; use Write instead of WriteLine
+        Console.Write("\r");
     }
+    
+    // Wait for user input before finishing
+    Console.WriteLine("\n\nPress any key to exit...");
+    Console.ReadKey();
+}
         PrintHelp();
     }
 
