@@ -182,7 +182,6 @@ private static bool DetectSurfaceProEnvironment()
 
 private static void CenterAndDisplayArt(string[] lines)
 {
-    // Detect whether the environment is a Surface Pro or small screen
     bool isSurfacePro = DetectSurfaceProEnvironment();
 
     foreach (var line in lines)
@@ -194,19 +193,16 @@ private static void CenterAndDisplayArt(string[] lines)
         // Print leading spaces for centering
         Console.Write(new string(' ', spacesToPad));
 
-        // Print the line
-        Console.Write(line);
-
-        // Conditionally add new lines based on device detection
+        // Print the line without extra newlines on Surface Pro
         if (!isSurfacePro)
         {
-            // Add a regular newline for non-Surface Pro environments
-            Console.Write("\n");
+            Console.WriteLine(line);  // Regular newline for non-tablet environments
         }
         else
         {
-            // Skip the newline on Surface Pro to avoid double spacing
-            Console.Write("\r"); // Use carriage return to prevent extra space
+            // On Surface Pro, avoid adding extra line feeds by using Write instead of WriteLine
+            Console.Write(line);
+            Console.SetCursorPosition(0, Console.CursorTop); // Keep the cursor on the same line, preventing the next line from appearing stretched
         }
     }
 }
