@@ -197,17 +197,17 @@ namespace WorldOfZuul
                                                                                 
         };
 
-        // Center the ASCII art lines and print with green dollar signs
+        // Color and centering of the characters
         foreach (var line in lines)
         {
             // Calculate the padding for centering
             int totalWidth = Console.WindowWidth;
             int lineLength = line.Length;
             int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
-
+        
             // Print leading spaces for centering
             Console.Write(new string(' ', spacesToPad));
-
+        
             // Print the line with colored characters
             foreach (char i in line)
             {
@@ -236,10 +236,11 @@ namespace WorldOfZuul
                 }
             }
             
-            // Avoid adding an extra newline, just use Write instead of WriteLine
-            // With this the ASCII art at the beginning can adapt to different screen sizes
-            Map.CenterText(lines);
-            Console.Write("\r");
+            // Reset color for the next line
+            Console.ResetColor();
+            
+            // Move to the next line after printing the current line
+            Console.WriteLine();
         }
 
         PrintHelp();
