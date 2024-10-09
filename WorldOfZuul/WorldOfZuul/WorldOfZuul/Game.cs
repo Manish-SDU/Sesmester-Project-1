@@ -173,6 +173,8 @@ namespace WorldOfZuul
             string message = "Press 's' for small devices like tablets (e.g., Microsoft Surface) or any other key for larger devices like laptops:";
 
             // Use the new function to center the message
+            Console.WriteLine();
+            Console.WriteLine();
             ScreenCentering.DisplayCenteredMessage(message);
 
             Console.ResetColor(); // Reset color to default
