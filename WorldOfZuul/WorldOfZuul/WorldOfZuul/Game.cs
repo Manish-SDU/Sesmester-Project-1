@@ -1,6 +1,7 @@
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using MapAndCenter;
+using Eras;
 
 namespace WorldOfZuul
 {
@@ -35,17 +36,21 @@ namespace WorldOfZuul
         {
             Parser parser = new();
             var newMap = new Map();  // Making an instance of the map is necessary
-            newMap.CurrentRoomName = "Era2Corals";  // WHEN SWITCHING ROOMS PLEASE DEFINE IT AS HERE!
+             // WHEN SWITCHING ROOMS PLEASE DEFINE IT AS HERE!
 
             PrintWelcome();
 
             bool continuePlaying = true;
             while (continuePlaying)
             {
-                Console.WriteLine(currentRoom?.ShortDescription);
-                Console.Write("> ");
+                //Console.WriteLine(currentRoom?.ShortDescription);
+               // Console.Write("> ");
+
+               newMap.CurrentRoomName = "Era1";
+               Era1.PlayEra1();
 
                 string? input = Console.ReadLine();
+
 
                 if (string.IsNullOrEmpty(input))
                 {
@@ -74,12 +79,13 @@ namespace WorldOfZuul
                             currentRoom = previousRoom;
                         break;
 
-                    case "north":
+                    /*case "north":
                     case "south":
                     case "east":
                     case "west":
                         Move(command.Name);
-                        break;
+                        break; */
+
 
                     case "quit":
                         continuePlaying = false;
@@ -101,7 +107,7 @@ namespace WorldOfZuul
                 }
             }
 
-            Console.WriteLine("Thank you for playing World of Zuul!");
+            Console.WriteLine("Thank you for playing Darwin's quest!");
         }
 
         private void Move(string direction)
@@ -272,9 +278,16 @@ namespace WorldOfZuul
 
         private static void PrintHelp()
         {   
-            Console.WriteLine("Blah blah blah game text");
-            Console.WriteLine("we'll add more text here as we go just testing the map");
-            Console.WriteLine();
+
+        string[] lines = {
+                "This will be a quick intro to the commands a player must use",
+                "",
+                "Press any key to continue!"
+        };
+            Map.CenterText(lines);
+            Console.ReadLine();
+            Console.Clear();
+            
             // Console.WriteLine("Navigate by typing 'north', 'south', 'east', or 'west'.");
             // Console.WriteLine("Type 'look' for more details.");
             // Console.WriteLine("Type 'back' to go to the previous room.");
