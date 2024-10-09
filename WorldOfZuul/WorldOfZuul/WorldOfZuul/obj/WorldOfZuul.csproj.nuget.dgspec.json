@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\klark\\Documents\\SDU Software engineering\\1st Semester\\Semester project Development of Software programs\\project github\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj": {}
+    "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj": {}
   },
   "projects": {
-    "C:\\Users\\klark\\Documents\\SDU Software engineering\\1st Semester\\Semester project Development of Software programs\\project github\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj": {
+    "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\klark\\Documents\\SDU Software engineering\\1st Semester\\Semester project Development of Software programs\\project github\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj",
+        "projectUniqueName": "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj",
         "projectName": "WorldOfZuul",
-        "projectPath": "C:\\Users\\klark\\Documents\\SDU Software engineering\\1st Semester\\Semester project Development of Software programs\\project github\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj",
-        "packagesPath": "C:\\Users\\klark\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\klark\\Documents\\SDU Software engineering\\1st Semester\\Semester project Development of Software programs\\project github\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\obj\\",
+        "projectPath": "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj",
+        "packagesPath": "C:\\Users\\manis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\klark\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\manis\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

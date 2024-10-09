@@ -162,13 +162,9 @@ namespace WorldOfZuul
             Map.CenterText(lines);
 
             // Wait for user input
-            /* 
-               Manish: Ask the user if they want to use the "s" option for Tablet display - Like a Surface Pro (My Computer)
-               This logic is primarily for my own use so I can view the game on my computer.
-               If I remove this logic, all the ASCII art becomes misaligned and disoriented on my computer. 
-            */
-
-            Console.WriteLine("\n\n\n\n");
+            Console.WriteLine("\n\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
 
             // Set color for the prompt message
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -176,13 +172,8 @@ namespace WorldOfZuul
             // Message to display
             string message = "Press 's' for small devices like tablets (e.g., Microsoft Surface) or any other key for larger devices like laptops:";
 
-            // Get the console width and calculate the starting position for centering
-            int consoleWidth = Console.WindowWidth;
-            int messageLength = message.Length;
-            int spaces = (consoleWidth - messageLength) / 2;
-
-            // Print spaces to center the message
-            Console.WriteLine(new string(' ', spaces) + message);
+            // Use the new function to center the message
+            ScreenCentering.DisplayCenteredMessage(message);
 
             Console.ResetColor(); // Reset color to default
 
@@ -214,58 +205,8 @@ namespace WorldOfZuul
                 @"                                                                                                                                                        ",                                                                                
             };
 
-            // Color and centering of the characters
-            foreach (var line in lines)
-            {
-                // Calculate the padding for centering
-                int totalWidth = Console.WindowWidth;
-                int lineLength = line.Length;
-                int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
-                
-                // Print leading spaces for centering
-                Console.Write(new string(' ', spacesToPad));
-                
-                // Print the line with colored characters
-                foreach (char i in line)
-                {
-                    switch (i)
-                    {
-                        case '$':
-                            Console.ForegroundColor = ConsoleColor.Green; 
-                            Console.Write(i); 
-                            break;
-                        case '@':
-                            Console.ForegroundColor = ConsoleColor.Gray; 
-                            Console.Write(i); 
-                            break;
-                        case ':':
-                            Console.ForegroundColor = ConsoleColor.Yellow; 
-                            Console.Write(i); 
-                            break;
-                        case '*':
-                            Console.ForegroundColor = ConsoleColor.DarkGray; 
-                            Console.Write(i); 
-                            break;
-                        default:
-                            Console.ResetColor(); 
-                            Console.Write(i); 
-                            break;
-                    }
-                }
-                
-                // Reset color for the next line
-                Console.ResetColor();
-                
-                // Move to the next line after printing the current line or use "\r" based on user input
-                if (userInput == 's' || userInput == 'S') // Check if user pressed 's' or 'S' for Tablet display
-                {
-                    Console.Write("\r"); // Overwrite the current line
-                }
-                else
-                {
-                    Console.WriteLine(); // Move to the next line
-                }
-            }
+            // Use the new function to center ASCII art and handle device display
+            ScreenCentering.DisplayCenteredAscii(lines, userInput);
 
             PrintHelp();
         }
