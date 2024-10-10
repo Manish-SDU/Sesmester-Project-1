@@ -10,8 +10,6 @@ namespace MapAndCenter
             int consoleWidth = Console.WindowWidth;
             int messageLength = message.Length;
             int spaces = (consoleWidth - messageLength) / 2;
-
-            // Print spaces to center the message
             Console.WriteLine(new string(' ', spaces) + message);
         }
 
@@ -20,12 +18,9 @@ namespace MapAndCenter
             // Color and centering of the characters
             foreach (var line in lines)
             {
-                // Calculate the padding for centering
                 int totalWidth = Console.WindowWidth;
                 int lineLength = line.Length;
                 int spacesToPad = Math.Max((totalWidth - lineLength) / 2, 0);
-                
-                // Print leading spaces for centering
                 Console.Write(new string(' ', spacesToPad));
                 
                 // Print the line with colored characters
@@ -56,7 +51,6 @@ namespace MapAndCenter
                     }
                 }
                 
-                // Reset color for the next line
                 Console.ResetColor();
                 
                 // Move to the next line after printing the current line or use "\r" based on user input
@@ -66,7 +60,7 @@ namespace MapAndCenter
                 }
                 else
                 {
-                    Console.WriteLine(); // Move to the next line
+                    Console.WriteLine();
                 }
             }
         }

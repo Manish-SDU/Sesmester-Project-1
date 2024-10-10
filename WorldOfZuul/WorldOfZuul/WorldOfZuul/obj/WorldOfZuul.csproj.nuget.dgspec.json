@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj": {}
+    "C:\\Users\\manis\\Desktop\\Darwin\\WorldOfZuul\\WorldOfZuul.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj": {
+    "C:\\Users\\manis\\Desktop\\Darwin\\WorldOfZuul\\WorldOfZuul.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj",
+        "projectUniqueName": "C:\\Users\\manis\\Desktop\\Darwin\\WorldOfZuul\\WorldOfZuul.csproj",
         "projectName": "WorldOfZuul",
-        "projectPath": "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj",
+        "projectPath": "C:\\Users\\manis\\Desktop\\Darwin\\WorldOfZuul\\WorldOfZuul.csproj",
         "packagesPath": "C:\\Users\\manis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\manis\\Desktop\\Sesmester-Project-1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul\\obj\\",
+        "outputPath": "C:\\Users\\manis\\Desktop\\Darwin\\WorldOfZuul\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\manis\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,7 +1,6 @@
-﻿using System.Security.Cryptography;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using MapAndCenter;
-using Eras;
 
 namespace WorldOfZuul
 {
@@ -9,6 +8,7 @@ namespace WorldOfZuul
     {
         private Room? currentRoom;
         private Room? previousRoom;
+        private Portal? portal;
 
         public Game()
         {
@@ -36,21 +36,20 @@ namespace WorldOfZuul
         {
             Parser parser = new();
             var newMap = new Map();  // Making an instance of the map is necessary
-             // WHEN SWITCHING ROOMS PLEASE DEFINE IT AS HERE!
+            portal = new Portal();
+            // WHEN SWITCHING ROOMS PLEASE DEFINE IT AS HERE!
 
             PrintWelcome();
 
             bool continuePlaying = true;
             while (continuePlaying)
             {
-                //Console.WriteLine(currentRoom?.ShortDescription);
-               // Console.Write("> ");
-
-               newMap.CurrentRoomName = "Era1";
-               Era1.PlayEra1();
+                // Show the current era instead of the default "Outside"
+                Console.WriteLine($"Current Era: {portal.CurrentRoomName}");
+                // Console.WriteLine(currentRoom?.ShortDescription);
+                // Console.Write("> ");
 
                 string? input = Console.ReadLine();
-
 
                 if (string.IsNullOrEmpty(input))
                 {
@@ -84,8 +83,7 @@ namespace WorldOfZuul
                     case "east":
                     case "west":
                         Move(command.Name);
-                        break; */
-
+                        break;*/
 
                     case "quit":
                         continuePlaying = false;
@@ -96,13 +94,17 @@ namespace WorldOfZuul
                         break;
 
                     case "map":
-                        // string CurrentRoom = RoomNow;
-                        // string CurrentRoomName= "Era1";
-                        Map.DisplayMap(newMap.CurrentRoomName);
-                        break;
+                    // Display the map of the current era
+                    Map.DisplayMap(portal.CurrentRoomName);
+                    break;
+
+                    case "teleport":
+                    // Teleport and change the era
+                    portal.Teleport();
+                    break;
 
                     default:
-                        Console.WriteLine("I don't know what command.");
+                        Console.WriteLine("I don't know that command.");
                         break;
                 }
             }
@@ -122,7 +124,6 @@ namespace WorldOfZuul
                 Console.WriteLine($"You can't go {direction}!");
             }
         }
-
         private static void PrintWelcome()
         {
             Console.Clear();
@@ -151,10 +152,8 @@ namespace WorldOfZuul
                 "A secret, ancient technology, lost to time, is unearthed — a gateway to the past."
             };
             Map.CenterText(lines);
-
-            // Wait for user input
             Console.WriteLine("\n\nPress any key to continue...");
-            Console.ReadKey(); // Wait for a key press
+            Console.ReadKey();
             Console.Clear();
 
             lines = new string[] {
@@ -166,29 +165,24 @@ namespace WorldOfZuul
                 "Only by traveling through the forgotten eras of human history can you rewrite the mistakes that brought the world to its knees, and restore balance before it’s too late."
             };
             Map.CenterText(lines);
-
-            // Wait for user input
             Console.WriteLine("\n\nPress any key to continue...");
             Console.ReadKey();
             Console.Clear();
 
-            // Set color for the prompt message
+            // Title Display for Tablets or Small Computers
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-            // Message to display
             string message = "Press 's' for small devices like tablets (e.g., Microsoft Surface) or any other key for larger devices like laptops:";
 
             // Use the new function to center the message
             Console.WriteLine();
             Console.WriteLine();
             ScreenCentering.DisplayCenteredMessage(message);
-
-            Console.ResetColor(); // Reset color to default
+            Console.ResetColor();
 
             // Capture user input without displaying it
             char userInput = Console.ReadKey(true).KeyChar;
-            Console.WriteLine(); // Move to the next line for better formatting
-            Console.Clear(); // Clear the console
+            Console.WriteLine();
+            Console.Clear();
 
             // ASCII art lines with dollar signs
             lines = new string[]
@@ -218,7 +212,6 @@ namespace WorldOfZuul
 
             PrintHelp();
         }
-
         private static void PrintHelp()
         {   
 
@@ -231,6 +224,10 @@ namespace WorldOfZuul
             Console.ReadLine();
             Console.Clear();
             
+            // Execute Darwin_Homeworld.cs - Luigi's file
+            Darwin_Homeworld darwinHomeworld = new Darwin_Homeworld();
+            darwinHomeworld.Enter();
+
             // Console.WriteLine("Navigate by typing 'north', 'south', 'east', or 'west'.");
             // Console.WriteLine("Type 'look' for more details.");
             // Console.WriteLine("Type 'back' to go to the previous room.");
