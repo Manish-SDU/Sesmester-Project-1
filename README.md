@@ -1,7 +1,7 @@
 # Sesmester-Project-1
 Team Collaboration for First Semester Project: World of Zuul
 
-### File Distribution
+### 📁 File Distribution
 
 - **Darwin_Homeworld.cs**: Introductory explanation of the game for Luigi.
 - **Era 1.cs**: Klara's file.
